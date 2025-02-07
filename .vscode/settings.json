@@ -1,0 +1,8 @@
+{
+  "python.analysis.autoImportCompletions": false,
+  "python.analysis.typeCheckingMode": "strict",
+  "python.linting.enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyArgs": ["--strict", "--ignore-missing-imports"],
+  "mypy.runUsingActiveInterpreter": true
+}

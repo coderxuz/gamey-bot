@@ -1,0 +1,41 @@
+{
+     "en":{
+          "lang": "Language",
+          "first_name":"Please write your first name",
+          "last_name":"Please write your last name",
+          "lang_choosen":"Language successfully selected to English",
+          "please_register":"You need to be registered to use this bot.",
+          "only_letter":"Please write only letters",
+          "phone":"PLease send your phone number",
+          "share_phone":"Share phone number",
+          "registered":"You have successfully registered.",
+          "group":"Group",
+          "channel":"Channel"
+     },
+     "ru":{
+          "lang": "Язык",
+          "first_name":"Пожалуйста, напишите ваше имя",
+          "lang_choosen":"Язык успешно выбран на русский",
+          "please_register":"Вам нужно зарегистрироваться, чтобы использовать этого бота.",
+          "only_letter":"Пожалуйста, пишите только буквы",
+          "last_name":"Пожалуйста, напишите вашу фамилию",
+          "phone":"Пожалуйста, отправьте ваш номер телефона",
+          "share_phone":"Поделиться номером телефона",
+          "registered":"Вы успешно зарегистрировались",
+          "group":"Группа",
+          "channel":"Канал"
+     },
+     "uz":{
+          "lang": "Til",
+          "first_name":"Ismingizni yozing",
+          "lang_choosen":"Til muvaffaqiyatli O'zbek o'zgartirildi",
+          "please_register":"Botni ishlatish uchun ro'yxatdan o'tishingiz kerak.",
+          "only_letter":"Faqat harflarni yozing",
+          "last_name":"Familiyangizni yozing",
+          "phone":"Telefon raqamingizni yuboring",
+          "share_phone":"Telefon raqamini ulashish",
+          "registered":"Siz muvaffaqiyatli ro'yxatdan o'tdingiz",
+          "group":"Guruh",
+          "channel":"Kanal"
+     }
+}
