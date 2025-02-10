@@ -1,7 +1,7 @@
 from aiogram.filters import Filter
 from aiogram.types import Message
 
-from typing import Tuple, Literal
+from typing import  Literal
 
 ChatType = Literal["private", "group", "supergroup", "channel"]
 

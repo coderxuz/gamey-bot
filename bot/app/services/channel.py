@@ -8,12 +8,13 @@ from os import getenv
 
 load_dotenv()
 CHANNEL_ID = getenv("CHANNEL_ID")
-if not CHANNEL_ID:
-    raise ValueError("Channel_id didn't find")
+
 
 
 async def is_subscribed(message: Message) -> bool:
     try:
+        if not CHANNEL_ID:
+            raise ValueError("Channel_id didn't find")
         chat_member = await bot.get_chat_member(
             chat_id=CHANNEL_ID, user_id=message.from_user.id
         )

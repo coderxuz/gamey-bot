@@ -9,6 +9,8 @@ from bot.app.middlewares.translations import LangType
 from bot.app.states.user_state import UserAuth
 from bot.app.keyboards.main import reply as main_reply
 from bot.app.filters.chat_filter import ChatFilter
+from common import ADMIN_ID
+from bot.app.keyboards.main.reply import admin_main
 
 router = Router()
 router.message.filter(ChatFilter(chat_type='private'))
@@ -16,6 +18,9 @@ router.message.filter(ChatFilter(chat_type='private'))
 @router.message(CommandStart(), Registered(is_registered=True))
 async def hello(message: Message, translate:LangType):
      keyboard = await main_reply.main_keys(translate=translate)
+     keyboard = await main_reply.main_keys(translate=translate)
+     if message.from_user.id == int(ADMIN_ID):
+         keyboard = await admin_main(translate=translate)
      await message.answer("Hello", reply_markup=keyboard)
 
 

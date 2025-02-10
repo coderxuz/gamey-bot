@@ -1,5 +1,6 @@
 import logging
 from dotenv import load_dotenv
+from os import getenv
 
 load_dotenv()
 
@@ -37,3 +38,6 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logger.addHandler(handler)
 
+ADMIN_ID = getenv("ADMIN_ID")
+if not ADMIN_ID:
+    raise ValueError('Admin id not found')

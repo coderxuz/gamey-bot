@@ -14,6 +14,8 @@ from bot.app.filters.text_int import TextIn
 from bot.app.middlewares.translations import LangType
 from bot.app.keyboards.main import reply as main_reply
 from bot.app.filters.chat_filter import ChatFilter
+from common import ADMIN_ID
+from bot.app.keyboards.main.reply import admin_main
 
 router = Router()
 router.message.filter(ChatFilter(chat_type='private'))
@@ -37,6 +39,8 @@ async def lang_choose(query: CallbackQuery, db: AsyncSession, state: FSMContext,
     await set_user_language(user_id=query.from_user.id, lang_code=lang_code)
     t = TranslationMiddleware.get_translation
     keyboard = await main_reply.main_keys(translate=t, lang_code=lang_code)
+    if query.from_user.id == int(ADMIN_ID):
+        keyboard = await admin_main(translate=t, lang_code=lang_code)
     await query.message.answer(t(lang_code, "lang_choosen"), reply_markup=keyboard)  # type:ignore
     db_user = (
         (await db.execute(select(User.tg_id).where(User.tg_id == query.from_user.id)))
@@ -45,5 +49,4 @@ async def lang_choose(query: CallbackQuery, db: AsyncSession, state: FSMContext,
     )
     if not db_user:
         await query.message.answer(t(lang_code, "first_name"), reply_markup=ReplyKeyboardRemove())  # type:ignore
-        await state.set_state()
-    await state.set_state(UserAuth.first_name)
+        await state.set_state(UserAuth.first_name)
