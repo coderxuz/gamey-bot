@@ -14,15 +14,22 @@ async def new_game(translate: LangType) -> InlineKeyboardMarkup:
 
 async def games_message(translate: LangType):
     completed = InlineKeyboardButton(
-        text=translate("completed"), callback_data="games:completed"
+        text=translate("completed"), callback_data="games:{True}"
     )
     not_completed = InlineKeyboardButton(
-        text=translate("not_completed"), callback_data="games:not_completed"
+        text=translate("not_completed"), callback_data="games:{False}"
     )
-    
+
     keyboard = InlineKeyboardMarkup(inline_keyboard=[[completed], [not_completed]])
     return keyboard
-async def games_response(translate:LangType, page:int):
-     keyboard = InlineKeyboardBuilder()
-     keyboard.button("previous", callback_data=f'page:{page-1}')
-     
+
+
+async def games_response(translate: LangType, page: int, total_pages:int, completed: bool):
+    keyboard = InlineKeyboardBuilder()
+    if page > 0:
+        keyboard.button(text="previous", callback_data=f"page:{completed}:{page-1}")
+    if page<total_pages-1:
+        keyboard.button(text="Next", callback_data=f"page:{completed}:{page+1}")
+    return keyboard.as_markup()
+
+

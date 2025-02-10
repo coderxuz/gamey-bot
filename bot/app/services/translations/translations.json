@@ -24,7 +24,9 @@
     "not_completed": "not completed ❌",
     "choose_completed": "Completed games or not completed games",
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "created_at": "Created at",
+    "end_time": "End time"
   },
   "ru": {
     "lang": "Язык",
@@ -51,7 +53,9 @@
     "not_completed": "не завершенные ❌",
     "choose_completed": "Завершенные игры или не завершенные игры",
     "previous": "Предыдущий",
-    "next": "Следующий"
+    "next": "Следующий",
+    "created_at": "Создано в",
+    "end_time": "Время окончания"
   },
   "uz": {
     "lang": "Til",
@@ -78,6 +82,8 @@
     "not_completed": "tugallanmagan ❌",
     "choose_completed": "Tugallangan o'yinlar yoki tugallanmagan o'yinlar",
     "previous": "Oldingi",
-    "next": "Keyingi"
+    "next": "Keyingi",
+    "created_at": "Yaratilgan vaqti",
+    "end_time": "Tugash vaqti"
   }
 }
