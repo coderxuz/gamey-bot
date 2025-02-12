@@ -1,4 +1,4 @@
-from aiogram import Router
+from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove
 from aiogram.fsm.context import FSMContext
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -15,6 +15,11 @@ import re
 
 router = Router()
 router.message.filter(ChatFilter(chat_type='private'))
+
+@router.callback_query(F.data == 'authorize')
+async def start_first_name(query:CallbackQuery, state:FSMContext, translate:LangType):
+    await query.message.answer(translate('first_name')) #type:ignore
+    await state.set_state(UserAuth.first_name)
 
 @router.message(UserAuth.first_name)
 async def set_first_name(message: Message, state: FSMContext, translate: LangType):

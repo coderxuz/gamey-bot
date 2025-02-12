@@ -15,6 +15,7 @@ class User(Base):
     last_name: Mapped[str]
     phone: Mapped[str] = mapped_column(unique=True)
     tg_id: Mapped[int] = mapped_column(BigInteger, unique=True)
+    is_admin:Mapped[bool] = mapped_column(server_default='false')
     created_at: Mapped[datetime] = mapped_column(server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(
         server_default=func.now(), onupdate=func.now()
@@ -25,7 +26,8 @@ class User(Base):
 
 class Game(Base):
     __tablename__ = "games"
-
+    
+    name:Mapped[str]
     created_at: Mapped[datetime] = mapped_column(server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(
         server_default=func.now(), onupdate=func.now()

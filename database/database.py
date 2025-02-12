@@ -19,7 +19,6 @@ engine = create_engine(DB_URL)
 ASYNC_DB_URL = getenv("ASYNC_DB_URL")
 if not ASYNC_DB_URL:
     raise ValueError("ASYNC_DB_URL didn't find")
-print(ASYNC_DB_URL)
 
 async_engine = create_async_engine(ASYNC_DB_URL)
 

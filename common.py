@@ -41,3 +41,4 @@ logger.addHandler(handler)
 ADMIN_ID = getenv("ADMIN_ID")
 if not ADMIN_ID:
     raise ValueError('Admin id not found')
+ADMIN_ID = int(ADMIN_ID)

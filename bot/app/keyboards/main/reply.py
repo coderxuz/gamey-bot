@@ -38,10 +38,10 @@ async def admin_main(translate: LangType|TranslationCallable, lang_code:Optional
         )  # Assume first argument is language
     
     new_game = KeyboardButton(text=get_text("new_game"))
-    users = KeyboardButton(text=get_text("users"))
     lang = KeyboardButton(text=get_text("lang"))
     games = KeyboardButton(text=get_text('games'))
+    admin = KeyboardButton(text=get_text('admin'))
 
     return ReplyKeyboardMarkup(
-        keyboard=[[new_game, games], [users,lang]], resize_keyboard=True
+        keyboard=[[new_game, games], [lang,admin]], resize_keyboard=True
     )

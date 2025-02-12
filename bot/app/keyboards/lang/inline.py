@@ -5,9 +5,10 @@ from bot.app.middlewares.translations import LangType
 
 async def start_inline_dont_sign(translate:LangType)->InlineKeyboardMarkup:
     lang = InlineKeyboardButton(text=translate('lang'), callback_data='choose_lang')
+    auth = InlineKeyboardButton(text=translate('authorize'), callback_data='authorize')
     
     keyboard = InlineKeyboardMarkup(
-        inline_keyboard=[[lang]]
+        inline_keyboard=[[lang, auth]]
     )
     
     return keyboard
