@@ -49,8 +49,14 @@ async def add_admins(
     return builder.as_markup()
 
 async def set_admin(translate:LangType, user_id:int):
-    set_admin = InlineKeyboardButton(text=translate("set_as_admin"), callback_data=f"set_as_admin:{user_id}")
+    set_admin_key = InlineKeyboardButton(text=translate("set_as_admin"), callback_data=f"set_as_admin:{user_id}")
     
     return InlineKeyboardMarkup(
-        inline_keyboard=[[set_admin]]
+        inline_keyboard=[[set_admin_key]]
+    )
+async def delete_admin(translate:LangType, user_id:int):
+    delete_admin_key = InlineKeyboardButton(text=translate("delete_admin"), callback_data=f"delete_admin:{user_id}")
+    
+    return InlineKeyboardMarkup(
+        inline_keyboard=[[delete_admin_key]]
     )

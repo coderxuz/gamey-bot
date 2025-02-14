@@ -35,12 +35,12 @@ async def shut_down():
 
 
 async def main():
+    dp.include_router(channel.router)
+    dp.include_router(admin.router)
     dp.include_router(start.router)
     dp.include_router(lang.router)
-    dp.include_router(channel.router)
     dp.include_router(group.router)
     dp.include_router(auth.router)
-    dp.include_router(admin.router)
     await dp.start_polling(bot)  # type:ignore
 
 

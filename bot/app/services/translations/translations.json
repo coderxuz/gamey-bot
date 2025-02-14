@@ -44,7 +44,15 @@
     "write_first_name": "PLease write user's first name",
     "phone_number": "Phone number",
     "set_as_admin": "Set as admin",
-    "setted_as_admin": "{first_name} {last_name} successfully setted as admin"
+    "setted_as_admin": "{first_name} {last_name} successfully setted as admin",
+    "you_setted_as_admin":"You have set as admin",
+    "delete_admin": "Delete admin",
+    "deleted_as_admin": "{first_name} {last_name} successfully deleted as admin",
+    "you_deleted_as_admin":"You have deleted as admin",
+    "add_player": "Add player",
+    "complete_game": "Complete game",
+    "send_link": "Send link this link to player that you want to add",
+    "link": "Link"
   },
   "ru": {
     "lang": "Язык",
@@ -91,7 +99,15 @@
     "write_first_name": "Пожалуйста, напишите имя пользователя",
     "phone_number": "Номер телефона",
     "set_as_admin": "Назначить админом",
-    "setted_as_admin": "{first_name} {last_name} успешно назначен админом"
+    "setted_as_admin": "{first_name} {last_name} успешно назначен админом",
+    "you_setted_as_admin":"Вы назначены админом",
+    "delete_admin": "Удалить админа",
+    "deleted_as_admin": "{first_name} {last_name} успешно удален админом",
+    "you_deleted_as_admin":"Вы удалены админом",
+    "add_player": "Добавить игрока",
+    "complete_game": "Завершить игру",
+    "send_link": "Отправьте эту ссылку игроку, которого вы хотите добавить",
+    "link": "Ссылка"
   },
   "uz": {
     "lang": "Til",
@@ -138,6 +154,14 @@
     "write_first_name": "Foydalanuvchi ismini yozing",
     "phone_number": "Telefon raqami",
     "set_as_admin": "Admin sifatida belgilash",
-    "setted_as_admin": "{first_name} {last_name} muvaffaqiyatli admin sifatida belgilandi"
+    "setted_as_admin": "{first_name} {last_name} muvaffaqiyatli admin sifatida belgilandi",
+    "you_setted_as_admin":"Siz admin sifatida belgiladingiz",
+    "delete_admin": "Adminni o'chirish",
+    "deleted_as_admin": "{first_name} {last_name} muvaffaqiyatli admin sifatida o'chirildi",
+    "you_deleted_as_admin":"Siz admin sifatida o'chirildingiz",
+    "add_player": "O'yinchi qo'shish",
+    "complete_game": "O'yinni tugatish",
+    "send_link": "Ushbu havolani qo'shmoqchi bo'lgan o'yinchiga yuboring",
+    "link": "Havola"
   }
 }

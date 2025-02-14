@@ -8,6 +8,7 @@ dependencies = [
     "aiogram>=3.17.0",
     "alembic>=1.14.1",
     "asyncpg>=0.30.0",
+    "cryptography>=44.0.1",
     "psycopg2>=2.9.10",
     "python-dotenv>=1.0.1",
     "redis>=5.2.1",

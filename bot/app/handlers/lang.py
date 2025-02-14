@@ -16,16 +16,20 @@ from bot.app.keyboards.main import reply as main_reply
 from bot.app.filters.chat_filter import ChatFilter
 from common import ADMIN_ID
 from bot.app.keyboards.main.reply import admin_main
+from bot.app.keyboards.auth.inline import auth_key
 
 router = Router()
-router.message.filter(ChatFilter(chat_type='private'))
-@router.message(TextIn(('Til','Язык','Language')))
-async def change_lang(message: Message,translate: LangType):
+router.message.filter(ChatFilter(chat_type="private"))
+
+
+@router.message(TextIn(("Til", "Язык", "Language")))
+async def change_lang(message: Message, translate: LangType):
     keyboard = await lang_inline.lang_keys()
     choose_lang = (
         "Iltimos tilni tanlang\nPlease select language\nПожалуйста, выберите язык"
     )
-    await message.answer(choose_lang,reply_markup=keyboard) 
+    await message.answer(choose_lang, reply_markup=keyboard)
+
 
 @router.callback_query(F.data == "choose_lang")
 async def choose_keys(query: CallbackQuery):
@@ -34,7 +38,9 @@ async def choose_keys(query: CallbackQuery):
 
 
 @router.callback_query(F.data.startswith("lang"))
-async def lang_choose(query: CallbackQuery, db: AsyncSession, state: FSMContext, translate:LangType):
+async def lang_choose(
+    query: CallbackQuery, db: AsyncSession, state: FSMContext, translate: LangType
+):
     lang_code = query.data.split("_")[1]  # type:ignore
     await set_user_language(user_id=query.from_user.id, lang_code=lang_code)
     t = TranslationMiddleware.get_translation
@@ -44,9 +50,15 @@ async def lang_choose(query: CallbackQuery, db: AsyncSession, state: FSMContext,
         .scalars()
         .first()
     )
-    if query.from_user.id == int(ADMIN_ID) or db_user and db_user.is_admin == True:
+    if db_user and db_user.is_admin == True:
         keyboard = await admin_main(translate=t, lang_code=lang_code)
-    await query.message.answer(t(lang_code, "lang_choosen"), reply_markup=keyboard)  # type:ignore
+    if query.from_user.id == ADMIN_ID:
+        keyboard = await admin_main(translate=t, lang_code=lang_code, main_admin=True)
+    await query.message.answer(
+        t(lang_code, "lang_choosen"), reply_markup=keyboard
+    )  # type:ignore
     if not db_user:
-        await query.message.answer(t(lang_code, "first_name"), reply_markup=ReplyKeyboardRemove())  # type:ignore
-        await state.set_state(UserAuth.first_name)
+        await query.message.answer(
+            t(lang_code,"please_register"),
+            reply_markup=await auth_key(t(lang_code,"authorize")),
+        )  # type:ignore

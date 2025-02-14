@@ -42,3 +42,10 @@ ADMIN_ID = getenv("ADMIN_ID")
 if not ADMIN_ID:
     raise ValueError('Admin id not found')
 ADMIN_ID = int(ADMIN_ID)
+
+BOT_USERNAME= getenv("BOT_USERNAME")
+if not ADMIN_ID:
+    raise ValueError('BOT_USERNAME not found')
+SECRET_KEY= getenv("SECRET_KEY")
+if not SECRET_KEY:
+    raise ValueError('SECRET_KEY not found')

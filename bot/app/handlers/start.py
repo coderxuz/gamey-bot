@@ -15,7 +15,6 @@ from bot.app.keyboards.main.reply import admin_main
 from common import logger
 from database.models import User
 
-logger.debug(ADMIN_ID)
 
 router = Router()
 router.message.filter(ChatFilter(chat_type="private"))
@@ -35,8 +34,10 @@ async def hello(message: Message, translate: LangType, db: AsyncSession, state:F
         .scalars()
         .first()
     )
-    if message.from_user.id == int(ADMIN_ID) or db_user and db_user.is_admin == True: #type:ignore
+    if db_user and db_user.is_admin == True: #type:ignore
         keyboard = await admin_main(translate=translate) 
+    if message.from_user.id == int(ADMIN_ID):
+        keyboard = await admin_main(translate=translate, main_admin=True) 
     await message.answer("Hello", reply_markup=keyboard)
     await state.clear()
 
