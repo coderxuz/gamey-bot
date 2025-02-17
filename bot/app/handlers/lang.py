@@ -44,7 +44,7 @@ async def lang_choose(
     lang_code = query.data.split("_")[1]  # type:ignore
     await set_user_language(user_id=query.from_user.id, lang_code=lang_code)
     t = TranslationMiddleware.get_translation
-    keyboard = await main_reply.main_keys(translate=t, lang_code=lang_code)
+    keyboard = await main_reply.main_keys(translate=translate, lang_code=lang_code)
     db_user = (
         (await db.execute(select(User).where(User.tg_id == query.from_user.id)))
         .scalars()

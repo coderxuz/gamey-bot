@@ -52,7 +52,16 @@
     "add_player": "Add player",
     "complete_game": "Complete game",
     "send_link": "Send link this link to player that you want to add",
-    "link": "Link"
+    "link": "Link",
+    "not_end": "Not end",
+    "status": "Status",
+    "end": "End",
+    "do_you_want_join":"Do you want to join the game?",
+    "do_you_want_join_user":"Do you want to join this user to the game?",
+    "name_game_txt":"Name of game",
+    "request_sent":"Request sent to admin",
+    "user_added_game":"User added to the game",
+    "players":"Players"
   },
   "ru": {
     "lang": "Язык",
@@ -107,7 +116,16 @@
     "add_player": "Добавить игрока",
     "complete_game": "Завершить игру",
     "send_link": "Отправьте эту ссылку игроку, которого вы хотите добавить",
-    "link": "Ссылка"
+    "link": "Ссылка",
+    "not_end": "Не завершено",
+    "status": "Статус",
+    "end": "Конец",
+    "do_you_want_join":"Хотите присоединиться к игре?",
+    "do_you_want_join_user":"Хотите ли вы присоединить этого пользователя к игре?",
+    "name_game_txt":"Название игры",
+    "request_sent":"Запрос отправлен администратору",
+    "user_added_game":"Пользователь добавлен в игру",
+    "players":"Игроки"
   },
   "uz": {
     "lang": "Til",
@@ -162,6 +180,15 @@
     "add_player": "O'yinchi qo'shish",
     "complete_game": "O'yinni tugatish",
     "send_link": "Ushbu havolani qo'shmoqchi bo'lgan o'yinchiga yuboring",
-    "link": "Havola"
+    "link": "Havola",
+    "not_end": "Tugatilmagan",
+    "status": "Holat",
+    "end": "Tugagan",
+    "do_you_want_join":"O'yinga qo'shilishni xohlaysizmi?",
+    "do_you_want_join_user":"Ushbu foydalanuvchini o'yinga qo'shilishni xohlaysizmi?",
+    "name_game_txt":"O'yin nomi",
+    "request_sent":"So'rov adminga yuborildi",
+    "user_added_game":"Foydalanuvchi o'yinga qo'shildi",
+    "players":"O'yinchilar"
   }
 }

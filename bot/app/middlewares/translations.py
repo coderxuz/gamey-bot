@@ -27,9 +27,8 @@ class RedisTranslationMiddleware(BaseMiddleware):
             
         if user_id:
             user_language = await self.get_user_language(user_id)
-            data["translate"] = lambda key: self.get_translation(user_language, key) #type:ignore
+            data["translate"] = lambda key, lang_code=None: self.get_translation(user_language if not lang_code else lang_code, key) #type:ignore
 
-        # Call the next handler in the chain
         return await handler(event, data)
     
     async def get_user_language(self, user_id: int) -> str:

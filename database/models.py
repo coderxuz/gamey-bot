@@ -39,7 +39,7 @@ class Game(Base):
 class UserGame(Base):
     __tablename__ = "user_game"
 
-    user_tg_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("users.id"))
+    user_tg_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("users.tg_id"))
     is_paid:Mapped[bool] = mapped_column(server_default='false')
     game_id: Mapped[int] = mapped_column(ForeignKey("games.id"))
 

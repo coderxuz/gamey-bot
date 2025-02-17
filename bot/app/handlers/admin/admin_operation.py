@@ -320,5 +320,5 @@ async def show_single_admin_pagination(
     await bot.send_message(
         chat_id=db_user.tg_id,
         text=t(user_lang_code, key='you_deleted_as_admin'),
-        reply_markup=await main_reply.main_keys(translate=t, lang_code=user_lang_code)
+        reply_markup=await main_reply.main_keys(translate=translate, lang_code=user_lang_code)
     ) if db_user.tg_id else None

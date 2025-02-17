@@ -56,3 +56,26 @@ async def single_game(translate: LangType, game_id: int):
     return InlineKeyboardMarkup(
         inline_keyboard=[[add_player], [complete_game]]
     )
+
+async def join_game(translate:LangType, game_id:int):
+    yes_btn = InlineKeyboardButton(
+        text=translate("yes"), callback_data=f"join_game:{game_id}"
+    )
+    no_btn = InlineKeyboardButton(
+        text=translate("no"), callback_data=f"join_game"
+    )
+    
+    return InlineKeyboardMarkup(
+        inline_keyboard=[[yes_btn], [no_btn]]
+    )
+async def add_game(translate:LangType,user_lang:str, game_id:int,user_id:int):
+    yes_btn = InlineKeyboardButton(
+        text=translate("yes", user_lang), callback_data=f"add_game:{game_id}:{user_id}"
+    )
+    no_btn = InlineKeyboardButton(
+        text=translate("no",user_lang), callback_data=f"add_game"
+    )
+    
+    return InlineKeyboardMarkup(
+        inline_keyboard=[[yes_btn], [no_btn]]
+    )
